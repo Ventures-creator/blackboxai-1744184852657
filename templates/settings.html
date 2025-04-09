@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Settings - I-Search{% endblock %}
+
+{% block content %}
+<div class="p-6">
+    <div class="max-w-3xl mx-auto">
+        <h1 class="text-2xl font-bold text-gray-800 mb-6">Account Settings</h1>
+        
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+            <!-- Account Settings -->
+            <div class="p-6 border-b">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">Account Information</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-1">Full Name</label>
+                        <input type="text" value="{{ current_user.name }}" class="w-full px-3 py-2 border rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Email</label>
+                        <input type="email" value="{{ current_user.email }}" class="w-full px-3 py-2 border rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Change Password</label>
+                        <input type="password" placeholder="New password" class="w-full px-3 py-2 border rounded-lg mb-2">
+                        <input type="password" placeholder="Confirm new password" class="w-full px-3 py-2 border rounded-lg">
+                    </div>
+                </div>
+                <div class="mt-4 flex justify-end">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+
+            <!-- Privacy & Security -->
+            <div class="p-6 border-b">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">Privacy & Security</h2>
+                <div class="space-y-3">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="mr-2">
+                        <span>Enable two-factor authentication</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" class="mr-2" checked>
+                        <span>Email notifications</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" class="mr-2" checked>
+                        <span>Show my papers in public search</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- System Information -->
+            <div class="p-6">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">System Information</h2>
+                <div class="text-sm text-gray-600 space-y-2">
+                    <p>I-Search Academic Paper Compiler v1.0</p>
+                    <p>Developed for Isabela State University</p>
+                    <p class="pt-4 text-xs text-gray-500">
+                        All academic papers and content are protected under the intellectual property 
+                        policies of Isabela State University. Unauthorized distribution or reproduction 
+                        of content is strictly prohibited.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Logout Section -->
+            <div class="bg-gray-50 p-4 border-t flex justify-between items-center">
+                <div class="text-sm text-gray-500">
+                    Last login: {{ current_user.last_login.strftime('%Y-%m-%d %H:%M') if current_user.last_login else 'Never' }}
+                </div>
+                <a href="{{ url_for('logout') }}" class="text-red-600 hover:text-red-800 font-medium">
+                    <i class="fas fa-sign-out-alt mr-1"></i> Log Out
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
