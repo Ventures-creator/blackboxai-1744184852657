@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Home - I-Search{% endblock %}
+
+{% block content %}
+<div class="p-6">
+    <div class="mb-8">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Search Academic Papers</h1>
+        <form class="flex items-center">
+            <input type="text" placeholder="Search papers..." 
+                   class="flex-1 px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- News Feed Section -->
+        <div class="md:col-span-2">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">ISU News</h2>
+            <div class="bg-white rounded-lg shadow p-4 mb-4">
+                <div class="flex items-center mb-2">
+                    <img src="{{ url_for('static', filename='i-search.jpg') }}" alt="ISU" class="h-8 mr-2">
+                    <span class="font-medium">University Update</span>
+                </div>
+                <p class="text-gray-700">Research symposium scheduled for December 15, 2023.</p>
+                <p class="text-xs text-gray-500 mt-2">Posted 2 days ago</p>
+            </div>
+        </div>
+
+        <!-- Recent Papers Section -->
+        <div>
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Recent Papers</h2>
+            <div class="bg-white rounded-lg shadow p-4">
+                <div class="mb-4 pb-4 border-b">
+                    <h3 class="font-medium text-blue-600">Machine Learning Applications</h3>
+                    <p class="text-sm text-gray-600">Computer Science Department</p>
+                    <p class="text-xs text-gray-500">Posted: 2023-11-10</p>
+                </div>
+                <div class="mb-4 pb-4 border-b">
+                    <h3 class="font-medium text-blue-600">Educational Reforms</h3>
+                    <p class="text-sm text-gray-600">Education Department</p>
+                    <p class="text-xs text-gray-500">Posted: 2023-11-05</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
